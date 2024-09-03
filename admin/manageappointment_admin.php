@@ -1,0 +1,84 @@
+﻿<?php include('partials/menuadmin.php'); ?>
+
+    <div class="admin-content">
+        <h2 class="page-title">Manage Appointment(Don't Use This Page)</h2>
+
+        <table>
+            <thead>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Services</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th colspan="3">Action</th>
+            </thead>
+
+            <tbody>
+            <?php 
+                if(isset($_SESSION['approve'])) {
+                    echo $_SESSION['approve'];
+                    unset($_SESSION['approve']);
+                }
+
+                        //Query to get all category data
+                        $sql ="SELECT * FROM appointment a, services s, user u WHERE App_Status = 'Pending' AND s.Service_ID = a.Service_ID AND u.User_ID = a.User_ID";
+                        //Execute the Query
+                        $res = mysqli_query($conn,$sql);
+
+                        //Check whether the Query is executed or not
+                        if($res==true) {
+                            //Count rows to check whether we have data in the database
+                            $count = mysqli_num_rows($res); //Func to get all the rows in database
+                            
+                            $sn=1; //Create a variable and assign the value
+
+                            //Check the num of rows
+                            if($count>0) {
+                                //We have data in database
+                                while($rows=mysqli_fetch_assoc($res)) {
+                                    //using while loop to get all the data from database
+                                    //and While loop will run as long as we have data in database
+
+                                    //Get individual data
+                                    $id=$rows['App_ID'];
+                                    $service=$rows['Service_Name'];
+                                    $date=$rows['App_Date'];
+                                    $time=$rows['App_Time'];
+                                    $name=$rows['User_Name'];
+                                    $user_id=$rows['User_ID'];
+
+
+                                    //Display the values in out table
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $sn++ ?></td>
+                                        <td><?php echo $name?></td>
+                                        <td><?php echo $service ?></td>
+                                        <td><?php echo $date ?></td>
+                                        <td><?php echo $time ?></td>
+                                        <td>
+                                            <a href="<?php echo SITEURL; ?>admin/approve_appointment.php?id=<?php echo $id; ?>" class="approve">Approve </a> 
+                                            <a href="<?php echo SITEURL; ?>admin/reject_appointment.php?id=<?php echo $id; ?>" class="reject">Reject </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else {
+                                //We do not have data in database
+                                //We'll display the message inside table
+                                ?>
+                                <tr>
+                                    <td colspan="6"><div class="error">No Appointment Yet</div></td>
+                                </tr> 
+
+                                <?php
+
+                            }
+                        }
+                        ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

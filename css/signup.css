@@ -1,0 +1,160 @@
+* /* nii untuk semua, satu page*/ {
+    margin: 0;
+    padding: 0;
+    font-family: 'Century Gothic';
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../image/1.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+header { /* untuk header sahaja*/
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../image/1.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 25px;
+}
+
+    ul li {
+        display: inline-block; /* ni dia akan bagi sebaris*/
+    }
+
+        ul li a {
+            color: #fff;
+            padding: 5px 20px; /* ni saiz kotak tu, usha kat home, services dll */
+            border: 5px solid transparent; /* luas border tuu */
+            text-decoration: none; /* kalau takdak ni, akan ada bawah tu underline */
+        }
+
+            ul li a:hover {
+                background-color: #fff; /* blia gerakkan cursor ke arah kita nak tekan box tu, color belakang tu akan keluar, camni akan putih laa*/
+                color: #000; /* color text*/
+            }
+
+        ul li.active a {
+            background-color: #fff;
+            color: #000;
+        }
+
+.logo img {
+    float: left;
+    width: 200px;
+    height: auto;
+}
+
+.loginbox {
+    width: 320px;
+    height: 660px;
+    background: rgba(0,0,0,0.3);
+    color: #000;
+    top: 50%;
+    left: 50%;
+    margin: 2% auto;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 40px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: 35%;
+}
+
+h1{
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+    color:white;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color:white;
+}
+
+.loginbox input, select{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"], select{
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+option {
+    color: black;
+}
+
+.loginbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.oldacc {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 12px;
+    color: darkgrey;
+    position: absolute;
+    top: 96%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.loginbox a:hover{
+    color: #ffc107;
+}
+
+.error {
+    color: red;
+    text-align: center;
+ }
+
+ #error {
+    color: #e71612;
+    text-align: center;
+ }
+ 
+ .success {
+    color: #40754C;
+    padding: 5px;
+    width: 95%;
+    text-align: center;
+ }
+
+ .haha {
+    border: none;
+    outline: none;
+    background: #fb2525;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    float: center;
+    width: 15%;
+    height: 20%;
+    right: 60%;
+}
