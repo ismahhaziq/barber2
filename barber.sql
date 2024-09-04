@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2021 at 02:20 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Sep 04, 2024 at 08:42 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,15 @@ CREATE TABLE `appointment` (
   `Service_ID` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL,
   `Comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`App_ID`, `App_Date`, `App_Time`, `App_Status`, `Service_ID`, `User_ID`, `Comment`) VALUES
+(333, '2024-01-17', '10:46:00', 'Approved', 11, 35, ''),
+(334, '2024-01-18', '06:48:00', 'RejectedData', 10, 35, 'Busy');
 
 -- --------------------------------------------------------
 
@@ -49,7 +57,7 @@ CREATE TABLE `services` (
   `Minutes` varchar(255) NOT NULL,
   `Available` varchar(11) NOT NULL,
   `Service_Price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `services`
@@ -75,15 +83,18 @@ CREATE TABLE `user` (
   `User_Email` varchar(255) NOT NULL,
   `User_Password` varchar(255) NOT NULL,
   `User_Type` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`User_ID`, `Name`, `User_Name`, `User_PhoneNum`, `User_Email`, `User_Password`, `User_Type`) VALUES
-(30, 'admin', 'admin', '0189515192', 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'admin'),
-(31, 'user', 'user', '01172514020', 'user@gmail.com', '202cb962ac59075b964b07152d234b70', 'user');
+(31, 'user', 'user', '01172514020', 'user@gmail.com', '202cb962ac59075b964b07152d234b70', 'user'),
+(32, 'isuma', 'isuma', '011', 'isuma', '1bb893847b399135293db470cc13e801', 'user'),
+(33, 'admin', 'admin', '123222', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(34, 'MUHAMMAD HAKIM BIN RASDI', 'hakim', '222', 'hakimrasdi@gmail.com', 'f4a2758416b3aeb34bf1c29f2ccc7e25', 'user'),
+(35, 'amira', 'amira', '12234', 'amira@gmail.com', 'f4a2758416b3aeb34bf1c29f2ccc7e25', 'user');
 
 --
 -- Indexes for dumped tables
@@ -118,7 +129,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `App_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
+  MODIFY `App_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -130,7 +141,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables
